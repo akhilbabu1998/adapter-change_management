@@ -116,7 +116,7 @@ class ServiceNowAdapter extends EventEmitter {
         */
         this.emitOffline();
         log.error("Error from " + this.id)
-        // callback(null, error);
+        callback(null, error);
     } else {
         /**
         * Write this block.
@@ -130,7 +130,7 @@ class ServiceNowAdapter extends EventEmitter {
         */
         this.emitOnline();
         log.debug("Online");
-        // callback(result, null);
+        callback(result, null);
     }
     });
     }
@@ -192,7 +192,7 @@ class ServiceNowAdapter extends EventEmitter {
       this.connector.get((data, error) => {
             if (error) {
                 // console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
-                allback(data, error);
+                callback(null, error);
             } else {
                 console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
                 if (typeof data == 'object' && 'body' in data) {
@@ -212,7 +212,7 @@ class ServiceNowAdapter extends EventEmitter {
                         }
                         returnData.push(obj)
                     });
-                    callback(returnData, error)
+                    callback(returnData, null)
                 }
             }
         });
