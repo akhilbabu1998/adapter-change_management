@@ -116,7 +116,7 @@ class ServiceNowAdapter extends EventEmitter {
         */
         this.emitOffline();
         log.error("Error from " + this.id)
-        callback(null, error);
+        // callback(null, error);
     } else {
         /**
         * Write this block.
@@ -130,7 +130,7 @@ class ServiceNowAdapter extends EventEmitter {
         */
         this.emitOnline();
         log.debug("Online");
-        callback(result, null);
+        // callback(result, null);
     }
     });
     }
