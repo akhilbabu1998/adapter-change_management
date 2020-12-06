@@ -158,10 +158,10 @@ const validResponseRegex = /(2\d\d)/;
     const requestOptions = {
         method: callOptions.method,
         auth: {
-        user: this.options.username,
-        pass: this.options.password,
+        user: callOptions.username,
+        pass: callOptions.password,
         },
-        baseUrl: this.options.url,
+        baseUrl: callOptions.url,
         uri,
     };
     request(requestOptions, (error, response, body) => {
